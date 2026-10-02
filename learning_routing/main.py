@@ -24,5 +24,11 @@ def get_emplpoye_details(name:str = None):
     return {
         "name":name
     }
-
-
+# multiple quary
+def get_emplpoye_details(name:str = None,age:int = None):
+    print(name)
+    print(age)
+    return {
+        "name":name,
+        "age":age
+    }
