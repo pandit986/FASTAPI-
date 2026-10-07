@@ -1,8 +1,11 @@
 from fastapi import FastAPI
-
+from pydantic import BaseModel
 
 app = FastAPI()
 
+class User(BaseModel):
+    name:str
+    age:int
 
 @app.get("/")
 def home_route():
@@ -31,4 +34,13 @@ def get_emplpoye_details(name:str = None,age:int = None):
     return {
         "name":name,
         "age":age
+    }
+
+
+@app.post('/create-user')
+def create_user(user:User):
+    print(f'{user.name} is {user.age} years old')
+    return{
+        "message":"User Created",
+        "data":user
     }
