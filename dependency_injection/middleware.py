@@ -16,9 +16,9 @@ async def logging_middleware(request:Request,call_next):
     return response
 
 
-# @app.middleware("http")
-# async def my_middleware(request:Request, call_next):
-#     print("Middleware executed before request processing")
-#     response = await call_next(request)
-#     print("Middleware executed after request processing")
-#     return response
+@app.middleware("http")
+async def my_middleware(request:Request, call_next):
+    print("Middleware executed before request processing")
+    response = await call_next(request)
+    print("Middleware executed after request processing")
+    return response
