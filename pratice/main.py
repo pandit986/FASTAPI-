@@ -141,6 +141,21 @@ def delete_employee(emp_code: int):
         detail="Employee not found"
     )
 
+@app.get("/search-employee")
+def search_employee(name: str | None = None, last_name: str | None = None, email: EmailStr | None = None):
+    results = []
+    for emp in employees:
+        if (name and emp["name"].lower() == name.lower()) or \
+           (last_name and emp["last_name"].lower() == last_name.lower()) or \
+           (email and emp["email"].lower() == email.lower()):
+            results.append(emp)
+            
+    return {
+        "message": "Search results",
+        "data": results
+    }
+
+
 
 
 @app.get("/")
