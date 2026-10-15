@@ -4,4 +4,8 @@ __pycache__/
 .venv/
 venv/
 .env
-EOF
+EOF__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
